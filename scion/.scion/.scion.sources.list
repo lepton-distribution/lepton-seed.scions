@@ -1,0 +1,12 @@
+#shelf  scion			version		url
+lepton 	seed			master 		https://github.com/lepton-phlb/lepton-seed.scion.git
+lepton 	trunk.kernel 	master	 	https://github.com/lepton-phlb/lepton-trunk.scion.git 				kernel  
+lepton 	trunk.freertos	master	 	https://github.com/lepton-phlb/lepton-trunk.scion.git 				scheduler/freertos
+lepton 	trunk.lib 		master	 	https://github.com/lepton-phlb/lepton-trunk.scion.git  				lib
+lepton  building        *           $SCION_ROOTSTOCK/depots/lepton/building
+lepton 	kernel 			v-0.0.0.2 	git://ks354041.kimsufi.com/scion-shelves/lepton-kernel.scion.git
+
+lepton 	libc 			v-0.0.0.1 	git://ks354041.kimsufi.com/scion-shelves/lepton-libc.scion.git
+
+lepton 	lwip-1.3 		v-0.0.0.1 	git://ks354041.kimsufi.com/scion-shelves/lepton-lwip-1.3.scion.git
+

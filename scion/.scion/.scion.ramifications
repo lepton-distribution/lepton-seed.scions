@@ -1,0 +1,6 @@
+lepton 	seed 		master
+lepton 	trunk.kernel    master
+lepton  trunk.freertos  master
+lepton 	trunk.lib       master
+lepton  building 	*
+
