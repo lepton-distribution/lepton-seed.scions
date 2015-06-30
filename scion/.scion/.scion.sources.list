@@ -14,7 +14,7 @@ lepton 	root::dev 			master 		https://github.com/lepton-phlb/lepton-root.scion.g
 lepton 	building 			* 	   		$SCION_ROOTSTOCK/depots/lepton/building 
 lepton 	root::tools 		master      https://github.com/lepton-phlb/lepton-root.scion.git           	tools
 
-lepton 	root:executive-base master 	https://github.com/lepton-phlb/lepton-root.scion.git 			executive-sample/executive-base
+lepton 	root::executive-base master 	https://github.com/lepton-phlb/lepton-root.scion.git 			executive-sample/executive-base
 
 lepton 	kernel 			v-0.0.0.2 	git://ks354041.kimsufi.com/scion-shelves/lepton-kernel.scion.git
 lepton 	libc 			v-0.0.0.1 	git://ks354041.kimsufi.com/scion-shelves/lepton-libc.scion.git
