@@ -1,6 +1,19 @@
-lepton 	seed 		master
-lepton 	trunk.kernel    master
-lepton  trunk.freertos  master
-lepton 	trunk.lib       master
-lepton  building 	*
+lepton 	seed 				master
+lepton 	trunk::kernel    	master
+lepton  trunk::embos     	master
+lepton  trunk::freertos  	master
+lepton  trunk::dev 			master
+lepton  trunk::lwip-1.3.2 	master
+lepton  trunk::uip-2.5 		master
+lepton  trunk::yaffs 		master
+lepton  trunk::fat          master
+lepton 	trunk::lib       	master
+lepton  trunk::bin          master
+lepton  trunk::tools        master
+lepton  building 	        *
+
+lepton trunk::basic-sample-executive master       
+
+
+
 
