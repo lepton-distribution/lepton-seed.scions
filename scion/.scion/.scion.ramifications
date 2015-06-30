@@ -12,7 +12,7 @@ lepton  trunk::bin          master
 lepton  trunk::tools        master
 lepton  building 	        *
 
-lepton trunk::basic-sample-executive master       
+lepton trunk::executive-base master       
 
 
 

@@ -14,7 +14,7 @@ lepton 	trunk::dev 			master 		https://github.com/lepton-phlb/lepton-root.scion.
 lepton 	building 			* 	   		$SCION_ROOTSTOCK/depots/lepton/building 
 lepton 	trunk::tools 		master      https://github.com/lepton-phlb/lepton-root.scion.git           	tools
 
-lepton 	trunk::basic-sample-executive master https://github.com/lepton-phlb/lepton-root.scion.git       basic-sample-executive
+lepton 	trunk:executive-base master 	https://github.com/lepton-phlb/lepton-root.scion.git 			executive-sample/executive-base
 
 lepton 	kernel 			v-0.0.0.2 	git://ks354041.kimsufi.com/scion-shelves/lepton-kernel.scion.git
 lepton 	libc 			v-0.0.0.1 	git://ks354041.kimsufi.com/scion-shelves/lepton-libc.scion.git
