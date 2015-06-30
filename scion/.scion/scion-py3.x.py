@@ -397,7 +397,7 @@ def scion_graft_download(entry_key,sources_list_file_path,rootstock_path,shelf,s
    #
    if len(parsed_location_url.scheme)>0:
       # if distant check if already downloaded
-      prefix_scion_name = scion.split(".")[0] #scion name [prefix root-scion-ame]['.' suffix sub-scion-name]
+      prefix_scion_name = scion.split("::")[0] #scion name [prefix root-scion-name]['.' suffix sub-scion-name]
       local_scion_depot_path=rootstock_path+"/"+rootstock_depots_dir+"/"+shelf+"/"+prefix_scion_name+"/"+version
       #check if local git depot exists
       if not os.path.exists(local_scion_depot_path+"/.git"):
@@ -558,6 +558,12 @@ def scion_seeding(home_path, rootstock_path):
     grow_branch(building_scion_path+"/"+scion_stem_dir+"/building/staging/lib")
     grow_branch(building_scion_path+"/"+scion_stem_dir+"/building/output")
     grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/arm")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/cortexm")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/synthetic")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/synthetic/x86")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/synthetic/x86_static")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/win32")
     
     #
     #copy this script or make symbolic link from this script to bin 
