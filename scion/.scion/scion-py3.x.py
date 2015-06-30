@@ -557,13 +557,13 @@ def scion_seeding(home_path, rootstock_path):
     grow_branch(building_scion_path+"/"+scion_stem_dir+"/building/projects")
     grow_branch(building_scion_path+"/"+scion_stem_dir+"/building/staging/lib")
     grow_branch(building_scion_path+"/"+scion_stem_dir+"/building/output")
-    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch")
-    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/arm")
-    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/cortexm")
-    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/synthetic")
-    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/synthetic/x86")
-    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/synthetic/x86_static")
-    grow_branch(building_scion_path+"/"+scion_stem_dir+"/src/kernel/core/arch/win32")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/sys/root/src/kernel/core/arch")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/sys/root/src/kernel/core/arch/arm")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/sys/root/src/kernel/core/arch/cortexm")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/sys/root/src/kernel/core/arch/synthetic")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/sys/root/src/kernel/core/arch/synthetic/x86")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/sys/root/src/kernel/core/arch/synthetic/x86_static")
+    grow_branch(building_scion_path+"/"+scion_stem_dir+"/sys/root/src/kernel/core/arch/win32")
     
     #
     #copy this script or make symbolic link from this script to bin 
