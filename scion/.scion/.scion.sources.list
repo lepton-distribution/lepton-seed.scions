@@ -2,8 +2,8 @@
 
 lepton 	seed 				master 		https://github.com/lepton-phlb/lepton-seed.scion.git
 lepton 	trunk::kernel 		master 		https://github.com/lepton-phlb/lepton-root.scion.git           	kernel 
-lepton 	trunk::freertos 	master 		https://github.com/lepton-phlb/lepton-root.scion.git           	scheduler/freertos 
-lepton 	trunk::embos     	master 		https://github.com/lepton-phlb/lepton-root.scion.git           	scheduler/embos
+lepton 	trunk::freertos 	master 		https://github.com/lepton-phlb/lepton-root.scion.git           	sched/freertos 
+lepton 	trunk::embos     	master 		https://github.com/lepton-phlb/lepton-root.scion.git           	sched/embos
 lepton 	trunk::yaffs 		master 		https://github.com/lepton-phlb/lepton-root.scion.git           	fs/yaffs
 lepton 	trunk::fat 			master 		https://github.com/lepton-phlb/lepton-root.scion.git           	fs/fat
 lepton 	trunk::lib 			master 		https://github.com/lepton-phlb/lepton-root.scion.git           	lib 
