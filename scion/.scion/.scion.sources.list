@@ -11,6 +11,9 @@ lepton 	root::lwip-1.3.2 	master 		https://github.com/lepton-phlb/lepton-root.sc
 lepton 	root::uip-2.5 		master 		https://github.com/lepton-phlb/lepton-root.scion.git 			net/uip-2.5
 lepton 	root::bin 			master 		https://github.com/lepton-phlb/lepton-root.scion.git 			bin
 lepton 	root::dev 			master 		https://github.com/lepton-phlb/lepton-root.scion.git 			dev
+lepton 	root::discovery-f4 	master 		https://github.com/lepton-phlb/lepton-root.scion.git 			bsp/stm32f4/discovery_f4
+lepton 	root::olimex-p407 	master 		https://github.com/lepton-phlb/lepton-root.scion.git 			bsp/stm32f4/olimex_p407
+
 lepton 	building 			* 	   		$SCION_ROOTSTOCK/depots/lepton/building 
 lepton 	root::tools 		master      https://github.com/lepton-phlb/lepton-root.scion.git           	tools
 
