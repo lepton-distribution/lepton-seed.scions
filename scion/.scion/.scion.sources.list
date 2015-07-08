@@ -14,6 +14,8 @@ lepton 	root::dev 			master 		https://github.com/lepton-phlb/lepton-root.scion.g
 lepton 	root::discovery-f4 	master 		https://github.com/lepton-phlb/lepton-root.scion.git 			bsp/stm32f4/discovery_f4
 lepton 	root::olimex-p407 	master 		https://github.com/lepton-phlb/lepton-root.scion.git 			bsp/stm32f4/olimex_p407
 
+lepton 	root::samd20-xplained-pro 	master	https://github.com/lepton-phlb/lepton-root.scion.git 		bsp/atsamd20/samd20xplained_pro
+
 lepton 	building 			* 	   		$SCION_ROOTSTOCK/depots/lepton/building 
 lepton 	root::tools 		master      https://github.com/lepton-phlb/lepton-root.scion.git           	tools
 

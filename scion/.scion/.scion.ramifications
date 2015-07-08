@@ -5,6 +5,7 @@ lepton  root::freertos  	master
 lepton  root::dev 			master
 lepton  root::discovery-f4  master
 lepton  root::olimex-p407   master
+lepton  root::samd20-xplained-pro master
 lepton  root::lwip-1.3.2 	master
 lepton  root::uip-2.5 		master
 lepton  root::yaffs 		master
