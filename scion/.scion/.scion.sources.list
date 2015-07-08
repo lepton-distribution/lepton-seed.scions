@@ -1,27 +1,25 @@
 #shelf  scion				version	    depot location													scion location in depot
 
-lepton 	seed 				master 		https://github.com/lepton-phlb/lepton-seed.scion.git
-lepton 	root::kernel 		master 		https://github.com/lepton-phlb/lepton-root.scion.git           	kernel 
-lepton 	root::freertos 		master 		https://github.com/lepton-phlb/lepton-root.scion.git           	sched/freertos 
-lepton 	root::embos     	master 		https://github.com/lepton-phlb/lepton-root.scion.git           	sched/embos
-lepton 	root::yaffs 		master 		https://github.com/lepton-phlb/lepton-root.scion.git           	fs/yaffs
-lepton 	root::fat 			master 		https://github.com/lepton-phlb/lepton-root.scion.git           	fs/fat
-lepton 	root::lib 			master 		https://github.com/lepton-phlb/lepton-root.scion.git           	lib 
-lepton 	root::lwip-1.3.2 	master 		https://github.com/lepton-phlb/lepton-root.scion.git  		 	net/lwip-1.3.2
-lepton 	root::uip-2.5 		master 		https://github.com/lepton-phlb/lepton-root.scion.git 			net/uip-2.5
-lepton 	root::bin 			master 		https://github.com/lepton-phlb/lepton-root.scion.git 			bin
-lepton 	root::dev 			master 		https://github.com/lepton-phlb/lepton-root.scion.git 			dev
-lepton 	root::discovery-f4 	master 		https://github.com/lepton-phlb/lepton-root.scion.git 			bsp/stm32f4/discovery_f4
-lepton 	root::olimex-p407 	master 		https://github.com/lepton-phlb/lepton-root.scion.git 			bsp/stm32f4/olimex_p407
+lepton 	seed 				master 		https://github.com/lepton-distribution/lepton-seed.scions.git
+lepton 	root::kernel 		master 		https://github.com/lepton-distribution/lepton-root.scions.git   kernel 
+lepton 	root::freertos 		master 		https://github.com/lepton-distribution/lepton-root.scions.git   sched/freertos 
+lepton 	root::embos     	master 		https://github.com/lepton-distribution/lepton-root.scions.git   sched/embos
+lepton 	root::yaffs 		master 		https://github.com/lepton-distribution/lepton-root.scions.git   fs/yaffs
+lepton 	root::fat 			master 		https://github.com/lepton-distribution/lepton-root.scions.git   fs/fat
+lepton 	root::lib 			master 		https://github.com/lepton-distribution/lepton-root.scions.git   lib 
+lepton 	root::lwip-1.3.2 	master 		https://github.com/lepton-distribution/lepton-root.scions.git   net/lwip-1.3.2
+lepton 	root::uip-2.5 		master 		https://github.com/lepton-distribution/lepton-root.scions.git 	net/uip-2.5
+lepton 	root::bin 			master 		https://github.com/lepton-distribution/lepton-root.scions.git 	bin
+lepton 	root::dev 			master 		https://github.com/lepton-distribution/lepton-root.scions.git 	dev
 
-lepton 	root::samd20-xplained-pro 	master	https://github.com/lepton-phlb/lepton-root.scion.git 		bsp/atsamd20/samd20xplained_pro
+lepton 	root::discovery-f4 	master 		https://github.com/lepton-distribution/lepton-root.scions.git 	bsp/stm32f4/discovery_f4
+lepton 	root::olimex-p407 	master 		https://github.com/lepton-distribution/lepton-root.scions.git 	bsp/stm32f4/olimex_p407
+
+lepton 	root::samd20-xplained-pro 	master	https://github.com/lepton-distribution/lepton-root.scions.git 		bsp/atsamd20/samd20xplained_pro
 
 lepton 	building 			* 	   		$SCION_ROOTSTOCK/depots/lepton/building 
-lepton 	root::tools 		master      https://github.com/lepton-phlb/lepton-root.scion.git           	tools
+lepton 	root::tools 		master      https://github.com/lepton-distribution/lepton-root.scions.git 	tools
 
-lepton 	root::executive-base master 	https://github.com/lepton-phlb/lepton-root.scion.git 			executive-sample/executive-base
+lepton 	root::executive-base master 	https://github.com/lepton-distribution/lepton-root.scions.git 	executive-sample/executive-base
 
-lepton 	kernel 			v-0.0.0.2 	git://ks354041.kimsufi.com/scion-shelves/lepton-kernel.scion.git
-lepton 	libc 			v-0.0.0.1 	git://ks354041.kimsufi.com/scion-shelves/lepton-libc.scion.git
-lepton 	lwip-1.3 		v-0.0.0.1 	git://ks354041.kimsufi.com/scion-shelves/lepton-lwip-1.3.scion.git
 
