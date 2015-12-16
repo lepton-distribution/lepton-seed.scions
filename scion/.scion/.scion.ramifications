@@ -3,6 +3,7 @@ lepton 	root::kernel    	master
 lepton  root::embos     	master
 lepton  root::freertos  	master
 lepton  root::dev 			master
+lepton  root::dev-stm32f4   master 
 lepton  root::discovery-f4  master
 lepton  root::olimex-p407   master
 lepton  root::samd20-xplained-pro master
@@ -15,7 +16,8 @@ lepton  root::bin          	master
 lepton  root::tools        	master
 lepton  building 	        *
 
-lepton root::executive-base master       
+lepton root::executive-base master  
+lepton gnu::executive-base  master      
 
 
 

@@ -12,6 +12,8 @@ lepton 	root::uip-2.5 		master 		https://github.com/lepton-distribution/lepton-r
 lepton 	root::bin 			master 		https://github.com/lepton-distribution/lepton-root.scions.git 	bin
 lepton 	root::dev 			master 		https://github.com/lepton-distribution/lepton-root.scions.git 	dev
 
+lepton  root::dev-stm32f4   master      https://github.com/lepton-distribution/lepton-root.scions.git 	dev-stm32/f4-cubemx
+
 lepton 	root::discovery-f4 	master 		https://github.com/lepton-distribution/lepton-root.scions.git 	bsp/stm32f4/discovery_f4
 lepton 	root::olimex-p407 	master 		https://github.com/lepton-distribution/lepton-root.scions.git 	bsp/stm32f4/olimex_p407
 
@@ -21,5 +23,6 @@ lepton 	building 			* 	   		$SCION_ROOTSTOCK/depots/lepton/building
 lepton 	root::tools 		master      https://github.com/lepton-distribution/lepton-root.scions.git 	tools
 
 lepton 	root::executive-base master 	https://github.com/lepton-distribution/lepton-root.scions.git 	executive-sample/executive-base
+lepton  gnu::executive-base  master 	https://github.com/lepton-distribution/lepton-gnu.scions.git 	executive-sample
 
 
