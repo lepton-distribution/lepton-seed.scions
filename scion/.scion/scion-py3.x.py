@@ -387,8 +387,29 @@ def scions_grafted_update(rootstock_path):
       for entry in scions_grafted_dictionary.values():
          f.write(entry+"\n")
       
+####################################################################
+# git repositry management download, update 
+####################################################################
+def scion_graft_git_update(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version):
+    # entry does not exists: new entry.
+   #find scion location
+   location_url, path = get_scion_location(sources_list_file_path,shelf,scion,version)
+   # local or distant location
+   parsed_location_url=urlparse(location_url)
+   # local or url
+   if len(parsed_location_url.scheme)>0:
+      # if distant check if already downloaded
+      prefix_scion_name = scion.split("::")[0] #scion name [prefix root-scion-name]['.' suffix sub-scion-name]
+      local_scion_depot_path=rootstock_path+"/"+rootstock_depots_dir+"/"+shelf+"/"+prefix_scion_name+"/"+version
+      #check if local git depot exists
+      if os.path.exists(local_scion_depot_path+"/.git"):
+         # git clone -b v-0.0.0.1 --single-branch git://ks354041.kimsufi.com/scion-shelves/lepton-kernel.scion.git ./lepton/kernel/v-0.0.0.1
+         git_command="git clone -b "+version+" --single-branch "+location_url+" "+local_scion_depot_path
+         # execute git command
+         os.system(git_command)
+
 #
-def scion_graft_download(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version):
+def scion_graft_git_download(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version):
     # entry does not exists: new entry.
    #find scion location
    location_url, path = get_scion_location(sources_list_file_path,shelf,scion,version)
@@ -424,7 +445,7 @@ def scion_graft_download(entry_key,sources_list_file_path,rootstock_path,shelf,s
       scions_grafted_dictionary[entry_key]=entry 
    
 #
-def scion_graft_preparation(sources_list_file_path,rootstock_path):
+def scion_graft_preparation(sources_list_file_path,rootstock_path,force_update=False):
    #
    scions_grafted_cache(rootstock_path)
    #
@@ -454,7 +475,10 @@ def scion_graft_preparation(sources_list_file_path,rootstock_path):
          else:
          	print ("information: scions ", scion, " version ", version, " from shelf " ,shelf," already existing in depots.\n")
       else:
-         scion_graft_download(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version)
+        if(force_update=True):
+          scion_graft_git_update(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version)
+        else:
+          scion_graft_git_download(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version)
         
       #end try except
    #end for
