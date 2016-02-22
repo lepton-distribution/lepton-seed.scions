@@ -674,8 +674,8 @@ scion_refresh_parser.set_defaults(which='refresh')
 scion_prepare_parser = subparsers.add_parser('prepare', help='prepare scions list will be grafted')
 scion_prepare_parser.set_defaults(which='prepare')
 # command update
-scion_prepare_parser = subparsers.add_parser('update', help='update from server all scions in list')
-scion_prepare_parser.set_defaults(which='update')
+scion_update_parser = subparsers.add_parser('update', help='update from server all scions in list')
+scion_update_parser.set_defaults(which='update')
 # command graft
 scion_graft_parser = subparsers.add_parser('graft', help='graft scions on rootstock')
 scion_graft_parser.set_defaults(which='graft')
@@ -683,25 +683,25 @@ scion_graft_parser.set_defaults(which='graft')
 scion_ungraft_parser = subparsers.add_parser('ungraft', help='ungraft all scions rootstock')
 scion_ungraft_parser.set_defaults(which='ungraft')
 
-# arguments seeding
+# arguments for command seeding
 if(len(current_active_rootstock)>0):
    scion_seeding_parser.add_argument("rootstock_path", nargs='?',default=current_active_rootstock)
 else:#required
    scion_seeding_parser.add_argument("rootstock_path", default=current_active_rootstock)
 
-# arguments inventory 
+# arguments for command inventory 
 if(len(current_active_rootstock)>0):
    scion_inventory_parser.add_argument("rootstock_path", nargs='?',default=current_active_rootstock)
 else:#required
    scion_inventory_parser.add_argument("rootstock_path", default=current_active_rootstock)
 
-# arguments refresh 
+# arguments for command refresh 
 if(len(current_active_rootstock)>0):
    scion_refresh_parser.add_argument("rootstock_path", nargs='?',default=current_active_rootstock)
 else:#required
    scion_refresh_parser.add_argument("rootstock_path", default=current_active_rootstock)
 
-# arguments prepare or update
+# arguments for command prepare
 if len(current_scion_path)>0:
    scion_sources_list_file_path= current_scion_path+"/"+scion_hidden_dir+"/"+scion_sources_list_file
    scion_ramifications_file_path= current_scion_path+"/"+scion_hidden_dir+"/"+scion_ramification_file
@@ -721,13 +721,33 @@ if(len(current_active_rootstock)>0):
 else:#required
    scion_prepare_parser.add_argument("rootstock_path",default=current_active_rootstock)
 
-# arguments graft
+# arguments for command update
+if len(current_scion_path)>0:
+   scion_sources_list_file_path= current_scion_path+"/"+scion_hidden_dir+"/"+scion_sources_list_file
+   scion_ramifications_file_path= current_scion_path+"/"+scion_hidden_dir+"/"+scion_ramification_file
+   scion_update_parser.add_argument("--sources",required=False, default=scion_sources_list_file_path)
+   scion_update_parser.add_argument("--scions", required=False, default=scion_ramifications_file_path)
+elif len(current_active_rootstock)>0:
+   scion_sources_list_file_path= current_active_rootstock+"/"+seed_lepton_root_path+"/"+scion_hidden_dir+"/"+scion_sources_list_file
+   scion_ramifications_file_path= current_active_rootstock+"/"+seed_lepton_root_path+"/"+scion_hidden_dir+"/"+scion_ramification_file
+   scion_update_parser.add_argument("--sources",required=False, default=scion_sources_list_file_path)
+   scion_update_parser.add_argument("--scions", required=False, default=scion_ramifications_file_path)
+else:#required
+   scion_update_parser.add_argument("--sources", required=True)
+   scion_update_parser.add_argument("--scions", required=True)  
+#
+if(len(current_active_rootstock)>0):
+   scion_update_parser.add_argument("rootstock_path", nargs='?',default=current_active_rootstock)
+else:#required
+   scion_update_parser.add_argument("rootstock_path",default=current_active_rootstock)
+
+# arguments for command graft
 if(len(current_active_rootstock)>0): 
    scion_graft_parser.add_argument("rootstock_path", nargs='?',default=current_active_rootstock)
 else:
    scion_graft_parser.add_argument("rootstock_path", default=current_active_rootstock)
 
-# arguments ungraft
+# arguments for command ungraft
 if(len(current_active_rootstock)>0): 
    scion_ungraft_parser.add_argument("rootstock_path", nargs='?',default=current_active_rootstock)
 else: #required
