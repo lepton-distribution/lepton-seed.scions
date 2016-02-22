@@ -3,7 +3,6 @@ lepton 	root::kernel    	v_0.1.0.1
 lepton  root::embos     	v_0.1.0.1
 lepton  root::freertos  	v_0.1.0.1
 lepton  root::dev 			v_0.1.0.1
-lepton  root::dev-stm32f4   v_0.1.0.1 
 lepton  root::discovery-f4  v_0.1.0.1
 lepton  root::olimex-p407   v_0.1.0.1
 lepton  root::samd20-xplained-pro v_0.1.0.1
@@ -18,7 +17,3 @@ lepton  building 	        *
 
 lepton root::executive-base v_0.1.0.1  
 lepton gnu::executive-base  master      
-
-
-
-
