@@ -387,6 +387,18 @@ def scions_grafted_update(rootstock_path):
       f.truncate(0)
       for entry in scions_grafted_dictionary.values():
          f.write(entry+"\n")
+
+#
+def scions_grafted_clean(rootstock_path):
+   #
+   scion_grafted_list_file_path=rootstock_path+"/"+rootstock_trunk_dir+"/"+scion_grafted_list_file
+   #
+   try:
+      os.remove(scion_grafted_list_file_path)
+      print ("file ", scion_grafted_list_file_path, " is removed\n")
+   except OSError:
+      print ("error: file ", scion_grafted_list_file_path, " cannot be removed\n")
+
       
 ####################################################################
 # git repositry management download, update 
@@ -562,7 +574,12 @@ def ungraft_all_scions(rootstock_path):
  
 #      
 def graft_scion(rootstock_path,scion_path):
-   dirs = os.listdir(scion_path)
+   try:
+      dirs = os.listdir(scion_path)
+   except OSError:
+      print ("error: cannot list dir: ", scion_path, "\n")
+      return
+
    for file in dirs:
       #.scion directory will not processed
       if(file==scion_hidden_dir):
@@ -664,6 +681,9 @@ subparsers = parser.add_subparsers(help='commands')
 # command seeding
 scion_seeding_parser = subparsers.add_parser('seeding', help='install rootstock')
 scion_seeding_parser.set_defaults(which='seeding')
+# command cleaning
+scion_cleaning_parser = subparsers.add_parser('cleaning', help='fell and clean rootstock')
+scion_cleaning_parser.set_defaults(which='cleaning')
 # command inventory
 scion_inventory_parser = subparsers.add_parser('inventory', help='scion inventory in rootstock ')
 scion_inventory_parser.set_defaults(which='inventory')
@@ -688,6 +708,12 @@ if(len(current_active_rootstock)>0):
    scion_seeding_parser.add_argument("rootstock_path", nargs='?',default=current_active_rootstock)
 else:#required
    scion_seeding_parser.add_argument("rootstock_path", default=current_active_rootstock)
+
+# arguments for command cleaning
+if(len(current_active_rootstock)>0):
+   scion_cleaning_parser.add_argument("rootstock_path", nargs='?',default=current_active_rootstock)
+else:#required
+   scion_cleaning_parser.add_argument("rootstock_path", default=current_active_rootstock)
 
 # arguments for command inventory 
 if(len(current_active_rootstock)>0):
@@ -768,8 +794,19 @@ if args["which"]=="seeding":
    rootstock_path = os.path.realpath(rootstock_path)
    #
    scion_seeding(home_path,rootstock_path)
-   
+   #
    #scion_graft_preparation(scion_sources_list_file_path,rootstock_path)
+
+# cleaning
+if args["which"]=="cleaning":
+   rootstock_path=args["rootstock_path"]
+   #
+   rootstock_path = os.path.realpath(rootstock_path)
+   #
+   ungraft_all_scions(rootstock_path+"/"+rootstock_trunk_dir)
+   #
+   scions_grafted_clean(rootstock_path)
+
 
 
 # inventory 
