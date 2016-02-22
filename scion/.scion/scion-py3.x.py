@@ -567,28 +567,32 @@ def ungraft_all_scions(rootstock_path):
             ungraft_all_scions(link_origin_real_path)
       
          try:
-         	print ("remove link: ", (rootstock_path+"/"+file), "\n") 
+         	print ("ungraft: remove link: ", (rootstock_path+"/"+file), "\n") 
          	os.remove(rootstock_path+"/"+file) 
          except OSError:
             print ("error: cannot remove link on: ",(rootstock_path+"/"+file), "\n" )
  
 #      
 def graft_scion(rootstock_path,scion_path):
+   #
+   #print ("graft scion from: ",scion_path)
+   #
    try:
       dirs = os.listdir(scion_path)
    except OSError:
       print ("error: cannot list dir: ", scion_path, "\n")
       return
-
+   #
    for file in dirs:
       #.scion directory will not processed
       if(file==scion_hidden_dir):
-        continue
+      	continue
       #
       if not os.path.lexists(rootstock_path+"/"+file):
          # make symbolic link
          try:
             os.symlink(scion_path+"/"+file,rootstock_path+"/"+file) 
+            print ("graft : make link from: ", scion_path+"/"+file," to ",(rootstock_path+"/"+file), "\n")
          except OSError:
             print ("error: cannot make link on: ", (rootstock_path+"/"+file), "\n")
       else:
@@ -863,10 +867,4 @@ if args["which"]=="ungraft":
    ungraft_all_scions(rootstock_path+"/"+rootstock_trunk_dir)
    
    
-
-
-
-
-
-
-
+#end of script
