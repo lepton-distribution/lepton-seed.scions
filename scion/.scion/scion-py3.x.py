@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import os
+import subprocess
 import sys
 import errno
 import argparse
@@ -403,10 +404,17 @@ def scion_graft_git_update(entry_key,sources_list_file_path,rootstock_path,shelf
       local_scion_depot_path=rootstock_path+"/"+rootstock_depots_dir+"/"+shelf+"/"+prefix_scion_name+"/"+version
       #check if local git depot exists
       if os.path.exists(local_scion_depot_path+"/.git"):
-         # git clone -b v-0.0.0.1 --single-branch git://ks354041.kimsufi.com/scion-shelves/lepton-kernel.scion.git ./lepton/kernel/v-0.0.0.1
-         git_command="git clone -b "+version+" --single-branch "+location_url+" "+local_scion_depot_path
-         # execute git command
-         os.system(git_command)
+      	# git clone -b v-0.0.0.1 --single-branch git://ks354041.kimsufi.com/scion-shelves/lepton-kernel.scion.git ./lepton/kernel/v-0.0.0.1
+        git_command="git pull"
+        # execute git command
+        try:
+        	retcode = subprocess.check_call(git_command, cwd = local_scion_depot_path)
+        	if retcode < 0:
+        		print("error: child was terminated by signal", -retcode, file=sys.stderr)
+        	else:
+        		print("scions from depot ", location_url ," update succeed: ", retcode, file=sys.stderr)
+        except OSError as e:
+        	print("error: execution failed:", e, file=sys.stderr)
 
 #
 def scion_graft_git_download(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version):
@@ -445,7 +453,7 @@ def scion_graft_git_download(entry_key,sources_list_file_path,rootstock_path,she
       scions_grafted_dictionary[entry_key]=entry 
    
 #
-def scion_graft_preparation(sources_list_file_path,rootstock_path,force_update=False):
+def scion_graft_scions_preparation(sources_list_file_path,rootstock_path):
    #
    scions_grafted_cache(rootstock_path)
    #
@@ -475,10 +483,46 @@ def scion_graft_preparation(sources_list_file_path,rootstock_path,force_update=F
          else:
          	print ("information: scions ", scion, " version ", version, " from shelf " ,shelf," already existing in depots.\n")
       else:
-        if(force_update=True):
-          scion_graft_git_update(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version)
-        else:
-          scion_graft_git_download(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version)
+      	scion_graft_git_download(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version)
+        
+      #end try except
+   #end for
+   scions_grafted_update(rootstock_path)
+
+#
+def scion_graft_scions_update(sources_list_file_path,rootstock_path):
+   #
+   scions_grafted_cache(rootstock_path)
+   #
+   for entry in scions_list:
+      try:
+         shelf,scion,version = extract_scion_entry(entry)
+      except IndexError:
+         sys.exit("error: not valid entry: "+entry+"\n")
+      #is already exist in scion grafted list
+      entry_key = shelf+"/"+scion
+      #
+      if entry_key in scions_grafted_dictionary:
+         line = scions_grafted_dictionary[entry_key]
+         # entry already exists
+         try:
+            shelf_grafted, scion_grafted, version_grafted, location_grafted, path_grafted = extract_scions_grafted_entry(line)
+         except IndexError:
+            print ("error : missing parameters in line", line, "\n")
+
+         if(compare(version,version_grafted)>0):
+            print ("information: scions ", scion, " version ", version, " from shelf " ,shelf ," will be installed instead current version ", version_grafted)
+            #ask which version will be used
+            #if used new scion version from ramification file instead version from grafted files then download it.
+         elif (compare(version,version_grafted)<0):
+            #nothing to do
+            print ("information: scions ", scion, " version ", version, " from shelf " ,shelf," : current version ", version_grafted," is more recent.") 
+         else:
+         	print ("information: scions ", scion, " version ", version, " from shelf " ,shelf," is existing in depots. Updating...\n")
+         	scion_graft_git_update(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version)
+         	print ("information: scions ", scion, " version ", version, " from shelf " ,shelf," Updated\n")
+      else:
+      	scion_graft_git_download(entry_key,sources_list_file_path,rootstock_path,shelf,scion,version)
         
       #end try except
    #end for
@@ -629,6 +673,9 @@ scion_refresh_parser.set_defaults(which='refresh')
 # command prepare
 scion_prepare_parser = subparsers.add_parser('prepare', help='prepare scions list will be grafted')
 scion_prepare_parser.set_defaults(which='prepare')
+# command update
+scion_prepare_parser = subparsers.add_parser('update', help='update from server all scions in list')
+scion_prepare_parser.set_defaults(which='update')
 # command graft
 scion_graft_parser = subparsers.add_parser('graft', help='graft scions on rootstock')
 scion_graft_parser.set_defaults(which='graft')
@@ -654,7 +701,7 @@ if(len(current_active_rootstock)>0):
 else:#required
    scion_refresh_parser.add_argument("rootstock_path", default=current_active_rootstock)
 
-# arguments prepare
+# arguments prepare or update
 if len(current_scion_path)>0:
    scion_sources_list_file_path= current_scion_path+"/"+scion_hidden_dir+"/"+scion_sources_list_file
    scion_ramifications_file_path= current_scion_path+"/"+scion_hidden_dir+"/"+scion_ramification_file
@@ -729,7 +776,18 @@ if args["which"]=="prepare":
    sources_list_file_path=args["sources"]
    scions_list_file_path=args["scions"]
    read_ramification(scions_list_file_path)
-   scion_graft_preparation(sources_list_file_path,rootstock_path)
+   scion_graft_scions_preparation(sources_list_file_path,rootstock_path)
+
+ # update
+if args["which"]=="update": 
+   rootstock_path=args["rootstock_path"]
+   #
+   rootstock_path = os.path.realpath(rootstock_path)
+   #
+   sources_list_file_path=args["sources"]
+   scions_list_file_path=args["scions"]
+   read_ramification(scions_list_file_path)
+   scion_graft_scions_update(sources_list_file_path,rootstock_path)
 
 # graft
 if args["which"]=="graft": 
