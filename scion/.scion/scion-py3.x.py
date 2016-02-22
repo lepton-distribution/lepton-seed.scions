@@ -413,7 +413,7 @@ def scion_graft_git_update(entry_key,sources_list_file_path,rootstock_path,shelf
         		print("error: child was terminated by signal", -retcode, file=sys.stderr)
         	else:
         		print("scions from depot ", location_url ," update succeed: ", retcode, file=sys.stderr)
-        except OSError as e:
+        except subprocess.CalledProcessError as e:
         	print("error: execution failed:", e, file=sys.stderr)
 
 #
