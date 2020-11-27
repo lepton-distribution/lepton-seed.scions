@@ -1,22 +1,2 @@
-lepton 	root::kernel    			master
-lepton  root::embos     			master
-lepton  root::freertos  			master
-lepton  root::dev 					master
-lepton  root::discovery-f4  		master
-lepton  root::olimex-p407   		master
-lepton  root::samd20-xplained-pro 	master
-lepton  root::samv71-xplained-ultra master
-lepton  root::lwip-1.3.2 			master
-lepton  root::uip-2.5 				master
-lepton  root::yaffs 				master
-lepton  root::fat          			master
-lepton  root::fatfs        			master
-lepton 	root::lib       			master
-lepton  root::bin          			master
-lepton  root::tools        			master
+lepton 	original::tree    		master
 lepton  building 	        		*
-
-lepton  private::xgui       		master
-
-lepton root::executive-base 		master  
-lepton gnu::executive-base  		master      
