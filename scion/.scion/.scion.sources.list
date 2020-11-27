@@ -1,5 +1,5 @@
 #shelf  scion				    version	         depot location													                        scion location in depot
 #
-lepton 	root::kernel 		master 	         https://github.com/lepton-distribution/lepton-root.scions.git   kernel 
+lepton 	original::tree 	master 	         https://github.com/lepton-distribution/lepton-root.scions.git   kernel 
 #
-lepton 	building 			* 	   		         $SCION_ROOTSTOCK/depots/lepton/building 
+lepton 	building        * 	   		       $SCION_ROOTSTOCK/depots/lepton/building 
