@@ -2,4 +2,4 @@
 #
 lepton 	original::tree 	master 	         https://github.com/lepton-distribution/lepton-original-tree.scions.git
 #
-lepton 	building        * 	   		       $SCION_ROOTSTOCK/depots/lepton/building 
+lepton 	building        * 	   		       $SCION_ROOTSTOCK/depots/generation/building
