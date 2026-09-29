@@ -18,7 +18,7 @@ lepton 	root::olimex-p407 	master 	https://github.com/lepton-distribution/lepton
 lepton 	root::samd20-xplained-pro 	master	https://github.com/lepton-distribution/lepton-root.scions.git 		bsp/atsamd20/samd20xplained_pro
 lepton 	root::samv71-xplained-ultra master	https://github.com/lepton-distribution/lepton-root.scions.git 		bsp/atsamv71/samv71xplained_ultra
 
-lepton 	building 			* 	   		$SCION_ROOTSTOCK/depots/lepton/building 
+lepton 	building 			* 	   		depots/lepton/building 
 lepton 	root::tools 		master      https://github.com/lepton-distribution/lepton-root.scions.git 	tools
 
 lepton  private::xgui       master      https://bitbucket.org/phlb/lepton-xgui.scions.git            private/xgui
