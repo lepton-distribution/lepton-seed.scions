@@ -1,2 +1,5 @@
 lepton 	original::tree    		master
 lepton  building 	        		*
+lepton 	famille::qemu-mps2 	*
+lepton 	bsp::qemu-mps2-an386 	*
+lepton 	bsp::qemu-mps2-an500 	*

@@ -3,3 +3,8 @@
 lepton 	original::tree 	master 	         https://github.com/lepton-distribution/lepton-original-tree.scions.git
 #
 lepton 	building        * 	   		       depots/generation/building
+#
+# ENV-6 : greffons famille et BSP, dépôts git locaux (version * : ni fetch ni pull)
+lepton 	famille::qemu-mps2 	* 	depots/lepton-famille/qemu-mps2
+lepton 	bsp::qemu-mps2-an386 	* 	depots/lepton-bsp/qemu-mps2-an386
+lepton 	bsp::qemu-mps2-an500 	* 	depots/lepton-bsp/qemu-mps2-an500
