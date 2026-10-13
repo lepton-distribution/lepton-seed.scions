@@ -8,3 +8,5 @@ lepton 	building        * 	   		       depots/generation/building
 lepton 	famille::qemu-mps2 	* 	depots/lepton-famille/qemu-mps2
 lepton 	bsp::qemu-mps2-an386 	* 	depots/lepton-bsp/qemu-mps2-an386
 lepton 	bsp::qemu-mps2-an500 	* 	depots/lepton-bsp/qemu-mps2-an500
+lepton 	famille::stm32f4xx 	* 	depots/lepton-famille/stm32f4xx
+lepton 	bsp::nucleo-f429zi 	* 	depots/lepton-bsp/nucleo-f429zi

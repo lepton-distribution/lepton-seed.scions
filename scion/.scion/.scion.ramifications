@@ -3,3 +3,5 @@ lepton  building 	        		*
 lepton 	famille::qemu-mps2 	*
 lepton 	bsp::qemu-mps2-an386 	*
 lepton 	bsp::qemu-mps2-an500 	*
+lepton 	famille::stm32f4xx 	*
+lepton 	bsp::nucleo-f429zi 	*
