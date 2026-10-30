@@ -4,11 +4,11 @@ lepton 	original::tree 	master 	         https://github.com/lepton-distribution/
 #
 lepton 	building        * 	   		       depots/generation/building
 #
-# ENV-6 : greffons famille et BSP, dépôts git locaux (version * : ni fetch ni pull)
-lepton 	famille::qemu-mps2 	* 	depots/lepton-famille/qemu-mps2
-lepton 	bsp::qemu-mps2-an386 	* 	depots/lepton-bsp/qemu-mps2-an386
-lepton 	bsp::qemu-mps2-an500 	* 	depots/lepton-bsp/qemu-mps2-an500
-lepton 	famille::stm32f4xx 	* 	depots/lepton-famille/stm32f4xx
-lepton 	bsp::nucleo-f429zi 	* 	depots/lepton-bsp/nucleo-f429zi
-lepton 	famille::stm32wlxx 	* 	depots/lepton-famille/stm32wlxx
-lepton 	bsp::nucleo-wl55jc1 	* 	depots/lepton-bsp/nucleo-wl55jc1
+# Greffons famille et BSP (ENV-6), publiés sur GitHub ; clés family-/bsp- (ENV-13)
+lepton 	family-qemu-mps2 	master 	https://github.com/lepton-distribution/lepton-famille-qemu-mps2.git
+lepton 	bsp-qemu-mps2-an386 	master 	https://github.com/lepton-distribution/lepton-bsp-qemu-mps2-an386.git
+lepton 	bsp-qemu-mps2-an500 	master 	https://github.com/lepton-distribution/lepton-bsp-qemu-mps2-an500.git
+lepton 	family-stm32f4xx 	master 	https://github.com/lepton-distribution/lepton-famille-stm32f4xx.git
+lepton 	bsp-nucleo-f429zi 	master 	https://github.com/lepton-distribution/lepton-bsp-nucleo-f429zi.git
+lepton 	family-stm32wlxx 	master 	https://github.com/lepton-distribution/lepton-famille-stm32wlxx.git
+lepton 	bsp-nucleo-wl55jc1 	master 	https://github.com/lepton-distribution/lepton-bsp-nucleo-wl55jc1.git
