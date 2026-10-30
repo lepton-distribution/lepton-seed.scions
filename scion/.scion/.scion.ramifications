@@ -1,9 +1,9 @@
 lepton 	original::tree    		master
 lepton  building 	        		*
-lepton 	famille::qemu-mps2 	*
-lepton 	bsp::qemu-mps2-an386 	*
-lepton 	bsp::qemu-mps2-an500 	*
-lepton 	famille::stm32f4xx 	*
-lepton 	bsp::nucleo-f429zi 	*
-lepton 	famille::stm32wlxx 	*
-lepton 	bsp::nucleo-wl55jc1 	*
+lepton 	family-qemu-mps2 	master
+lepton 	bsp-qemu-mps2-an386 	master
+lepton 	bsp-qemu-mps2-an500 	master
+lepton 	family-stm32f4xx 	master
+lepton 	bsp-nucleo-f429zi 	master
+lepton 	family-stm32wlxx 	master
+lepton 	bsp-nucleo-wl55jc1 	master
