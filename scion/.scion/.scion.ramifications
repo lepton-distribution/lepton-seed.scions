@@ -9,3 +9,5 @@ lepton 	family-stm32wlxx 	master
 lepton 	bsp-nucleo-wl55jc1 	master
 lepton 	family-stm32f7xx 	master
 lepton 	bsp-stm32f746g-disco 	master
+lepton 	family-samd21 	master
+lepton 	bsp-samd21-xplained-pro 	master
