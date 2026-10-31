@@ -12,3 +12,5 @@ lepton 	family-stm32f4xx 	master 	https://github.com/lepton-distribution/lepton-
 lepton 	bsp-nucleo-f429zi 	master 	https://github.com/lepton-distribution/lepton-bsp-nucleo-f429zi.git
 lepton 	family-stm32wlxx 	master 	https://github.com/lepton-distribution/lepton-famille-stm32wlxx.git
 lepton 	bsp-nucleo-wl55jc1 	master 	https://github.com/lepton-distribution/lepton-bsp-nucleo-wl55jc1.git
+lepton 	family-stm32f7xx 	master 	https://github.com/lepton-distribution/lepton-famille-stm32f7xx.git
+lepton 	bsp-stm32f746g-disco 	master 	https://github.com/lepton-distribution/lepton-bsp-stm32f746g-disco.git
