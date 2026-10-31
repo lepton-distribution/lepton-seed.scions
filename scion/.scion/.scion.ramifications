@@ -5,6 +5,7 @@ lepton 	bsp-qemu-mps2-an386 	master
 lepton 	bsp-qemu-mps2-an500 	master
 lepton 	family-stm32f4xx 	master
 lepton 	bsp-nucleo-f429zi 	master
+lepton 	bsp-nucleo-f439zi 	master
 lepton 	family-stm32wlxx 	master
 lepton 	bsp-nucleo-wl55jc1 	master
 lepton 	family-stm32f7xx 	master
